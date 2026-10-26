@@ -1,0 +1,10 @@
+name: a07_authentication_vulnerable
+description: A07:2025 Fallas de autenticacion - version vulnerable (guardia de sesion/PIN Dart de una app Flutter)
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dev_dependencies:
+  test: 1.25.15

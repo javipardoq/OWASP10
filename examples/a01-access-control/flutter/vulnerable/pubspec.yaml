@@ -1,0 +1,10 @@
+name: a01_access_control_vulnerable
+description: A01:2025 Broken Access Control - version vulnerable (capa de datos Dart de una app Flutter)
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dev_dependencies:
+  test: 1.25.15

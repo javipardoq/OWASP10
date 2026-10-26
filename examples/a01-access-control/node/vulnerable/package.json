@@ -1,0 +1,14 @@
+{
+  "name": "a01-access-control-node-vulnerable",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A01:2025 Broken Access Control - version vulnerable (Node/Express)",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "5.3.0",
+    "sql.js": "1.15.1"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "a02-misconfiguration-node-fixed",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A02:2025 Security Misconfiguration - version fixed (Node/Express)",
+  "type": "commonjs",
+  "scripts": { "start": "node app.js" },
+  "dependencies": {
+    "express": "5.3.0"
+  }
+}

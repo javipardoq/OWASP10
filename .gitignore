@@ -1,0 +1,34 @@
+# Java / Maven
+target/
+*.class
+
+# Node
+node_modules/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Dart / Flutter
+.dart_tool/
+build/
+
+# Logs y temporales de verify.sh
+*.log
+.verify/
+
+# SO / IDE
+.DS_Store
+.idea/
+.vscode/
+*.iml
+
+# Materiales de presentación: SOLO locales, no se publican
+agenda/
+matrix/
+slides/
+demo-runbooks/
+
+# Herramientas de IDE que no van al repo
+.github/modernize/

@@ -1,0 +1,67 @@
+// A03:2025 — Cadena de Suministro de Software
+// Pipeline de Jenkins (Groovy) que integra el analisis de composicion (SCA) en el CI.
+// El pipeline FALLA el build si se detectan dependencias con vulnerabilidades conocidas,
+// evitando que lleguen a produccion. Asi se controla la cadena de suministro.
+
+pipeline {
+    agent any
+
+    options {
+        timestamps()
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Install') {
+            steps {
+                // 'npm ci' instala exactamente lo del lockfile (builds reproducibles).
+                sh 'npm ci'
+            }
+        }
+
+        stage('SCA - npm audit') {
+            steps {
+                // FIX: el build FALLA si hay vulnerabilidades de severidad alta o critica.
+                // Esto bloquea el merge/deploy de dependencias vulnerables.
+                sh 'npm audit --audit-level=high'
+            }
+        }
+
+        stage('SCA - OWASP Dependency-Check (opcional, multi-lenguaje)') {
+            steps {
+                // Para proyectos Java/Gradle/Maven se recomienda ademas OWASP Dependency-Check.
+                // Falla si el CVSS de alguna dependencia supera el umbral.
+                //   dependencyCheck additionalArguments: '--failOnCVSS 7', odcInstallation: 'owasp-dc'
+                //   dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+                echo 'Ejecutar OWASP Dependency-Check aqui para artefactos Java/Gradle.'
+            }
+        }
+
+        stage('Verificar firmas / integridad (A08 relacionado)') {
+            steps {
+                // Buenas practicas de cadena de suministro:
+                //  - Usar lockfiles versionados (package-lock.json, pubspec.lock, pom con versiones fijas).
+                //  - Verificar firmas/provenance de los artefactos (npm provenance, Sigstore/cosign).
+                //  - Usar un registro/proxy interno (Artifactory/Nexus) en vez del publico directo.
+                echo 'Verificar integridad y firmas de los artefactos antes de publicar.'
+            }
+        }
+
+        stage('Build & Test') {
+            steps {
+                sh 'npm test'
+            }
+        }
+    }
+
+    post {
+        failure {
+            echo 'Build bloqueado: revisar el reporte de SCA. NO desplegar dependencias vulnerables.'
+        }
+    }
+}

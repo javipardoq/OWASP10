@@ -1,0 +1,10 @@
+{
+  "name": "a03-supply-chain-fixed",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A03:2025 Cadena de Suministro - dependencias actualizadas sin vulnerabilidades conocidas",
+  "dependencies": {
+    "lodash": "4.18.1",
+    "minimist": "1.2.8"
+  }
+}

@@ -1,0 +1,10 @@
+name: a10_exceptional_vulnerable
+description: A10:2025 Excepciones - version vulnerable (puerta de seguridad local de una app Flutter)
+version: 1.0.0
+publish_to: none
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dev_dependencies:
+  test: 1.25.15

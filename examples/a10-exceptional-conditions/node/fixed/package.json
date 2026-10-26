@@ -1,0 +1,14 @@
+{
+  "name": "a10-exceptional-node-fixed",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A10:2025 Excepciones - version fixed (Node/Express)",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "5.3.0",
+    "sql.js": "1.15.1"
+  }
+}

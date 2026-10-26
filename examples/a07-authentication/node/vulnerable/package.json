@@ -1,0 +1,13 @@
+{
+  "name": "a07-authentication-node-vulnerable",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A07:2025 Fallas de autenticacion (fuerza bruta) - version vulnerable (Node/Express)",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "5.3.0"
+  }
+}

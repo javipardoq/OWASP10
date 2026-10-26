@@ -1,0 +1,10 @@
+{
+  "name": "a03-supply-chain-vulnerable",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A03:2025 Cadena de Suministro - dependencias con vulnerabilidades conocidas",
+  "dependencies": {
+    "lodash": "4.17.11",
+    "minimist": "1.2.0"
+  }
+}
